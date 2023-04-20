@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatterBox!</title>
+  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="">
 </head>
+
 <body>
-   {{{ body }}} 
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+       ChatterBox
+      </h1>
+      <nav>
+      
+        {{#if logged_in}}
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container">
+      
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+  {{#if logged_in}}
+  <script src=""></script>
+  {{/if}}
 </body>
+
 </html>
