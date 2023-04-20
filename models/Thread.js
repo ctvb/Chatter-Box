@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Message extends Model { }
+class Thread extends Model { }
 
-Message.init(
+Thread.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,27 +11,19 @@ Message.init(
             primaryKey: true,
             autoIncrement: true
         },
-        message_id: {
+        thread_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true
-        },
-        text: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        time_stamp: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
+            unique: true,
+        }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'message',
+        modelName: 'thread',
     }
 )
 
-module.exports = Message;
+module.exports = Thread;
