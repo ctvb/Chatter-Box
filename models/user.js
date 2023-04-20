@@ -36,7 +36,14 @@ User.init(
                 len: [8],
                 is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i
             },
+        },    
+        
+        profile_image: { 
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: 'default.jpg'
         },
+
         sequelize,
         timestamps: false,
         freezeTableName: true,
