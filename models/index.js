@@ -1,15 +1,15 @@
 // Imported Models
-const User = require('./models/User');
-const Message = require('./models/Message');
-const Thread = require('./models/Thread');
+const User = require('./User');
+const Chat = require('./Chat');
+const Thread = require('./Thread');
 
 // Message belongs to User identified by user_id
-Message.belongsTo(User, {
+Chat.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
 // Messages belong to individual Threads
-Message.belongsTo(Thread, {
+Chat.belongsTo(Thread, {
     foreignKey: 'thread_id'
 });
 
@@ -21,6 +21,6 @@ Thread.belongsTo(User, {
 
 module.exports = {
     User,
-    Message,
+    Chat,
     Thread
 }
