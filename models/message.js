@@ -14,7 +14,8 @@ Message.init(
         message_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true
+            unique: true,
+            autoIncrement: true
         },
         text: {
             type: DataTypes.STRING,
@@ -23,7 +24,15 @@ Message.init(
         time_stamp: {
             type: DataTypes.DATE,
             allowNull: false,
+            default: DataTypes.NOW
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "user",
+                key: "id"
+            }
+        }
     },
     {
         sequelize,
