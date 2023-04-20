@@ -1,8 +1,8 @@
 const sequelize = require('../config/connection');
-const { User, Message } = require('../models');
+const { User, Chat } = require('../models');
 
 const userSeedData = require('./userSeedData.json');
-const messageSeedData = require('./messageSeedData.json');
+const chatSeedData = require('./messageSeedData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -12,9 +12,9 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    for (const message of messageSeedData) {
-        const newMessage = await Message.create({
-            ...message,
+    for (const chat of chatSeedData) {
+        const newChat = await Chat.create({
+            ...chat,
             // Attach a random user ID to each message
             user_id: users[Math.floor(Math.random() * users.length)].id,
         });
