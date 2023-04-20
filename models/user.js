@@ -36,6 +36,11 @@ User.init(
                 len: [8],
                 is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i
             },
+        dateCreated: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
+        },
         },
         sequelize,
         timestamps: false,
