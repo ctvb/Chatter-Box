@@ -1,0 +1,44 @@
+<div class="window-area">
+        <div class="user-list">
+            <ul class="">
+                {{each user}}
+				<li class= "users-online">
+					<p>{{user.profile_image}} {{user.username}}</p>
+				</li>
+				{{/each}}
+            </ul>
+            <div class="my-account">
+                <div class="image">
+                    <img src="https://secure.gravatar.com/avatar/de76e03aa6b5b0bf675c1e8a990da52f?s=64">
+                    <i class="fa fa-circle online"></i>
+                </div>
+                <div class="name">
+                    <span>Cucu Ionel</span>
+                    <i class="fa fa-angle-down"></i>
+                    <span class="availability">Available</span>
+                </div>
+
+            </div>
+        </div>
+
+<div class="chat-area">
+	<div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
+	<div class="chat-list">
+		<ul>
+			{{#each chat}}
+			<li class="chat">
+				<p>{{sender}}: {{content}}</p>
+				<small>{{timestamp}}</small>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+	</div>
+</div>
+<form>
+	<input type="text" name="sender" placeholder="Your name">
+	<textarea name="message" placeholder="Type your message here"></textarea>
+	<button type="submit">Send</button>
+</form>
+
+<script src="../routes/api/chat-routes.js"></script>
