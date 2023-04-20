@@ -15,7 +15,6 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             unique: true,
-            autoIncrement: true
         },
         username: {
             type: DataTypes.STRING,
@@ -37,14 +36,21 @@ User.init(
                 len: [8],
                 is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i
             },
-        },    
-        
-        profile_image: { 
+        },
+
+        profile_image: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: 'default.jpg'
         },
-
+    },
+    {
+        hooks: {
+            beforeCreate: (user, options) => {
+                // Generate a random integer between 1000 and 9999 for user_id
+                user.user_id = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
+            }
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
