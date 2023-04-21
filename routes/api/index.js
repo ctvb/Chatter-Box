@@ -1,6 +1,8 @@
-// const router = require('express').Router();
-// const messageRoute = require('./message-routes');
+const router = require('express').Router();
+const chatRoutes = require('./chatRoute');
+const userRoutes = require('./userRoute');
 
-// router.use('/messages', messageRoute);
+// router.use('/chat', chatRoutes);
+router.use('/users', userRoutes);
 
-// module.exports = router;
+module.exports = router;
