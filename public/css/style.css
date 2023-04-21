@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+    --dark-color-a: #505d71;
+    --dark-color-b: #7386ff;
+    --light-color: #cfdae1;
+    --success-color: #5cb85c;
+    --error-color: #d9534f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background: var(--light-color);
+    margin: 20px;
+}
+
+.window-area {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-left: 176px;
+}
+
+.user-list {
+    width: 176px;
+    background: var(--dark-color-a);
+    float: left;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+}
+
+.chat-area {
+    border-top: 1px solid var(--light-color);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 176px;
+    right: 175px;
+    box-shadow: inset 0 1px 3px rgba(207, 218, 225, 0.42);
+
+}
+
+.chat-area .chat-list {
+    border-top: 1px solid var(--light-color);
+    border-bottom: 1px solid var(--light-color);
+    position: absolute;
+    left: 0;
+    top: 35px;
+    right: 0;
+    bottom: 44px;
+    overflow-y: auto;
+    outline: none;
+
+}
+
+.chat-area ul {
+    margin-right: -4px;
+}
+
+.chat-area ul>li {
+    border-top: 1px solid var(--light-color);
+    overflow: hidden;
+    position: relative;
+}
