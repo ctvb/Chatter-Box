@@ -27,6 +27,7 @@ body {
 
 h2 {
     display: center;
+    margin-bottom: 10px;
 }
 
 .login-box {
@@ -101,7 +102,7 @@ h2 {
 }
 
 .signup-form label {
-    font-weight: normal;
+
     margin-bottom: 5px;
 }
 
@@ -113,6 +114,7 @@ h2 {
     border-radius: 3px;
     border: 1px solid #ccc;
     font-size: 16px;
+    font-weight: normal;
     margin-bottom: 10px;
 }
 
@@ -138,4 +140,127 @@ h2 {
 .signup-form .button {
     display: flex;
     justify-content: center;
+}
+
+
+.chat-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    width: 80%;
+}
+
+.container {
+    display: flex;
+    background-color: #e6f2ff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 150px;
+    width: 40%;
+    height: 100%;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 150px;
+    width: 60%;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    height: 100%;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+.account-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.account-button {
+    font-size: 24px;
+}
+
+.users-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.user {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.user:hover {
+    background-color: #f1f1f1;
+}
+
+.status-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.status {
+    margin-top: auto;
 }
