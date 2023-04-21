@@ -1,25 +1,38 @@
+<div class="dropdown">
+	<button class="dropbtn">Account</button>
+	<div class="dropdown-content">
+		<a href="#">Change Password</a>
+		<a href="#">Log Off</a>
+	</div>
+</div>
 <div class="window-area">
-        <div class="user-list">
-            <ul class="">
-                {{each user}}
-				<li class= "users-online">
-					<p>{{user.profile_image}} {{user.username}}</p>
-				</li>
-				{{/each}}
-            </ul>
-            <div class="my-account">
-                <div class="image">
-                    <img src="https://secure.gravatar.com/avatar/de76e03aa6b5b0bf675c1e8a990da52f?s=64">
-                    <i class="fa fa-circle online"></i>
-                </div>
-                <div class="name">
-                    <span>Cucu Ionel</span>
-                    <i class="fa fa-angle-down"></i>
-                    <span class="availability">Available</span>
-                </div>
+	<div class="user-list">
+		<ul class="">
+			{{each user}}
+			<li class="users-online">
+				<p>{{user.profile_image}} {{user.username}}</p>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+<div class="my-account">
+	<div class="image">
+		<i class="fa fa-circle online"></i>
+	</div>
+	<div class="name">
+		<span>{{user.username}}</span>
+		<i class="fa fa-angle-down"></i>
+		<span class="availability">Available</span>
+		<ul>
+			<li><a href="#">Invisible</a></li>
+			<li><a href="#">Idle</a></li>
+			<li><a href="#">Do Not Disturb</a></li>
+		</ul>
+	</div>
 
-            </div>
-        </div>
+</div>
+</div>
 
 <div class="chat-area">
 	<div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
@@ -33,7 +46,7 @@
 			{{/each}}
 		</ul>
 	</div>
-	</div>
+</div>
 </div>
 <form>
 	<input type="text" name="sender" placeholder="Your name">
