@@ -1,3 +1,22 @@
+const mysql = require('mysql');
+const connection = msql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'pword',
+  database: 'chatterbox_db'
+})
+
+connection.connect();
+
+connection.query("SELECT * FROM chatterbox",(err,results,fields) => {
+  if(err) throw err;
+
+  if(results){
+    console.log(results);
+    connection.destroy();
+  }
+})
+
 let profile_image = " "
 const signupFormHandler = async (event) => {
     event.preventDefault();
