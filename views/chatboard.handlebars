@@ -8,7 +8,7 @@
 <div class="window-area">
 	<div class="user-list">
 		<ul class="">
-			{{each user}}
+			{{#each user as |user|}}
 			<li class="users-online">
 				<p>{{user.profile_image}} {{user.username}}</p>
 			</li>
@@ -54,4 +54,4 @@
 	<button type="submit">Send</button>
 </form>
 
-<script src="../routes/api/chat-routes.js"></script>
+{{!-- <script src="/js/chat.js"></script> --}}
