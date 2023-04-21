@@ -1,57 +1,72 @@
-<div class="dropdown">
-	<button class="dropbtn">Account</button>
-	<div class="dropdown-content">
-		<a href="#">Change Password</a>
-		<a href="#">Log Off</a>
-	</div>
-</div>
-<div class="window-area">
-	<div class="user-list">
-		<ul class="">
-			{{#each user as |user|}}
-			<li class="users-online">
-				<p>{{user.profile_image}} {{user.username}}</p>
-			</li>
-			{{/each}}
-		</ul>
-	</div>
-</div>
-<div class="my-account">
-	<div class="image">
-		<i class="fa fa-circle online"></i>
-	</div>
-	<div class="name">
-		<span>{{user.username}}</span>
-		<i class="fa fa-angle-down"></i>
-		<span class="availability">Available</span>
-		<ul>
-			<li><a href="#">Invisible</a></li>
-			<li><a href="#">Idle</a></li>
-			<li><a href="#">Do Not Disturb</a></li>
-		</ul>
-	</div>
+<div class="chat-wrapper">
+	<div class="container">
+		<div class="left-column">
+			<div class="account">
+				<div class="dropdown">
+					<button class="dropbtn">Account</button>
+					<div class="dropdown-content">
+						<a href="#">Change Password</a>
+						<a href="#">Log Off</a>
+					</div>
+				</div>
+			</div>
+			<div class="users">
+				<div class="user-list">
+					<ul>
+						{{#each user as |user|}}
+						<li class="users-online">
+							<p>{{user.profile_image}} {{user.username}}</p>
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
 
-</div>
-</div>
-
-<div class="chat-area">
-	<div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
-	<div class="chat-list">
-		<ul>
-			{{#each chat}}
-			<li class="chat">
-				<p>{{sender}}: {{content}}</p>
-				<small>{{timestamp}}</small>
-			</li>
-			{{/each}}
-		</ul>
+			<div class="status">
+				<div class="dropdown">
+					<button class="dropbtn">Status</button>
+					<div class="dropdown-content">
+						<a href="#">Available</a>
+						<a href="#">Invisible</a>
+						<a href="#">Idle</a>
+						<a href="#">Do Not Disturb</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="right-column">
+			<div class="chat-area">
+				<div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
+				<div class="chat-list">
+					<ul>
+						<ul>
+							{{#each chat}}
+							<li class="chat">
+								<p>{{sender}}: {{content}}</p>
+								<small>{{timestamp}}</small>
+							</li>
+							{{/each}}
+						</ul>
+						<li class="chat">
+							<p>John Doe: Hi, how are you?</p>
+							<small>12:30pm</small>
+						</li>
+						<li class="chat">
+							<p>Jane Smith: I'm good, thanks. How about you?</p>
+							<small>12:35pm</small>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<form>
+				<textarea name="message" placeholder="Type your message here"></textarea>
+				<button type="submit">Send</button>
+			</form>
+		</div>
 	</div>
 </div>
-</div>
-<form>
-	<input type="text" name="sender" placeholder="Your name">
-	<textarea name="message" placeholder="Type your message here"></textarea>
-	<button type="submit">Send</button>
-</form>
 
-{{!-- <script src="/js/chat.js"></script> --}}
+
+
+{{!--
+<script src="/js/chat.js"></script> --}}
