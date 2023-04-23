@@ -2,16 +2,16 @@ let profile_image = " "
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    // const first_name = document.querySelector('#first-name-signup').value.trim();
+    const firstname = document.querySelector('#first-name-signup').value.trim();
     // const last_name = document.querySelector('#last-name-signup').value.trim();
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
-    if ( username && email && password) {
+    if ( firstname && username && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password, profile_image }),
+        body: JSON.stringify({ firstname, username, email, password, profile_image }),
         headers: { 'Content-Type': 'application/json' },
       });
   
