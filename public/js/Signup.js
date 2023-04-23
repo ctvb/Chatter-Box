@@ -2,16 +2,16 @@ let profile_image = " "
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('#name-signup').value.trim();
+    // const first_name = document.querySelector('#first-name-signup').value.trim();
+    // const last_name = document.querySelector('#last-name-signup').value.trim();
+    const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-    const id = document.querySelector('#id-signup').value.trim();
-    const user_id = document.querySelector('#user_id-signup').value.trim();
   
-    if (id && user_id && username && email && password) {
+    if ( username && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ id, user_id, username, email, password, profile_image }),
+        body: JSON.stringify({ username, email, password, profile_image }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -23,19 +23,19 @@ const signupFormHandler = async (event) => {
     }
   };
 
-  var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'dov0ohe0b', 
-    uploadPreset: 'eihxr5yn'}, (error, result) => { 
-      if (!error && result && result.event === "success") { 
-        console.log('Done! Here is the image info: ', result.info); 
-        profile_image = result.info.secure_url;
-      }
-    }
-  )
+  // var myWidget = cloudinary.createUploadWidget({
+  //   cloudName: 'dov0ohe0b', 
+  //   uploadPreset: 'eihxr5yn'}, (error, result) => { 
+  //     if (!error && result && result.event === "success") { 
+  //       console.log('Done! Here is the image info: ', result.info); 
+  //       profile_image = result.info.secure_url;
+  //     }
+  //   }
+  // )
   
-  document.getElementById("upload_widget").addEventListener("click", function(){
-      myWidget.open();
-    }, false);
+  // document.getElementById("upload_widget").addEventListener("click", function(){
+  //     myWidget.open();
+  //   }, false);
   
   
   document
