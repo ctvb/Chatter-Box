@@ -1,56 +1,89 @@
-
-	<div class="container">
-		<div class="left-column">
-			<div class="account">
-				<div class="dropdown">
-					<button class="dropbtn">Account</button>
-					<div class="dropdown-content">
-						<a href="#">Change Password</a>
-						<a href="#">Log Off</a>
-					</div>
-				</div>
-			</div>
-			<div class="users">
-				<div class="user-list">
-					<ul>
-						{{#each user as |user|}}
-						<li class="users-online">
-							<p>{{user.profile_image}} {{user.username}}</p>
-						</li>
-						{{/each}}
-					</ul>
+<div class="container">
+	<div class="left-column">
+		<div class="account">
+			<div class="dropdown">
+				<button class="dropbtn">Account</button>
+				<div class="dropdown-content">
+					<a href="#">Change Password</a>
+					<a href="#">Log Off</a>
 				</div>
 			</div>
 		</div>
-		<div class="right-column">
-			<div class="chat-area">
-				<div class="title"><b>Conversation title</b><i class="fa fa-search"></i></div>
-				<div class="chat-list">
-					<ul>
-						<ul>
-							{{#each chat}}
-							<li class="chat">
-								<p>{{sender}}: {{content}}</p>
-								<small>{{timestamp}}</small>
-							</li>
-							{{/each}}
-						</ul>
-						<li class="chat">
-							<p>John Doe: Hi, how are you?</p>
+		<div class="users">
+			<div class="user-list">
+				<ul>
+					{{#each user as |user|}}
+					<li class="users-online">
+						<p>{{user.profile_image}} {{user.username}}</p>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="right-column">
+		<div class="chat-area">
+			<div class="chat-list">
+				<ul>
+					<li>
+						<div class="msg-body">
+							<h3 class="name">John Doe</h3>
+							<p class="msg-text">Hi, how are you?</p>
 							<small>12:30pm</small>
-						</li>
-						<li class="chat">
-							<p>Jane Smith: I'm good, thanks. How about you?</p>
+						</div>
+					</li>
+					<li>
+						<div class="msg-body">
+							<h3 class="name">Jane Smith</h3>
+							<p class="msg-text">I'm good, thanks. How about you?</p>
 							<small>12:35pm</small>
-						</li>
-					</ul>
+						</div>
+					</li>
+					<li>
+						<div class="msg-body">
+							<h3 class="name">Jane Smith</h3>
+							<p class="msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus,
+								doloribus et voluptas expedita exercitationem nemo porro vitae quos maiores. Impedit
+								minus adipisci modi tenetur laudantium autem saepe exercitationem consequuntur culpa!
+							</p>
+							<small>12:35pm</small>
+						</div>
+					</li>
+					<li>
+						<div class="msg-body">
+							<h3 class="name">Jane Smith</h3>
+							<p class="msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus,
+								doloribus et voluptas expedita exercitationem nemo porro vitae quos maiores. Impedit
+								minus adipisci modi tenetur laudantium autem saepe exercitationem consequuntur culpa!
+							</p>
+							<small>12:35pm</small>
+						</div>
+					</li>
+					<li>
+						<div class="msg-body">
+							<h3 class="name">Jane Smith</h3>
+							<p class="msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus,
+								doloribus et voluptas expedita exercitationem nemo porro vitae quos maiores. Impedit
+								minus adipisci modi tenetur laudantium autem saepe exercitationem consequuntur culpa!
+							</p>
+							<small>12:35pm</small>
+						</div>
+					</li>
+					<li>
+						<div class="msg-body">
+							<h3 class="name">Jane Smith</h3>
+							<p class="msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus,
+								doloribus et voluptas expedita exercitationem nemo porro vitae quos maiores. Impedit
+								minus adipisci modi tenetur laudantium autem saepe exercitationem consequuntur culpa!
+							</p>
+							<small>12:35pm</small>
+						</div>
+					</li>
+				</ul>
 				</div>
 			</div>
-			<form>
-				<textarea name="message" placeholder="Type your message here"></textarea>
-				<button type="submit">Send</button>
-			</form>
-		</div>
+		<textarea name="message" placeholder="Type your message here"></textarea>
+		<button id="send-msg" type="submit">Send</button>
 	</div>
 
 
