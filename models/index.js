@@ -1,5 +1,5 @@
 // Imported Models
-const User = require('./user');
+const User = require('./User');
 const Chat = require('./Chat');
 
 // Message belongs to User identified by user_id
