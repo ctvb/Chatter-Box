@@ -52,12 +52,13 @@ textarea {
 /* Drop Down for Account Button */
 .dropdown {
     position: relative;
+    max-width: fit-content;
 }
 
 .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 16px;
+    padding: 23px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -68,6 +69,7 @@ textarea {
     display: none;
     position: absolute;
     z-index: 1;
+    background-color: #007bff;
 }
 
 
