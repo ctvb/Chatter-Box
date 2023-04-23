@@ -2,17 +2,17 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the login form
-    const id = document.querySelector('#id-login').value.trim();
-    const user_id = document.querySelector('#user_id-login').value.trim();
+    // const id = document.querySelector('#id-login').value.trim();
+    // const user_id = document.querySelector('#user_id-login').value.trim();
     const username = document.querySelector('#username-login').value.trim();
-    const email = document.querySelector('#email-login').value.trim();
+    // const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-  
-    if (id && user_id && email && username && password) {
+    
+    if (username && password) {
       // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
-        body: JSON.stringify({ id, user_id, email, username, password }),
+        body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -20,6 +20,7 @@ const loginFormHandler = async (event) => {
         // If successful, redirect the browser to the profile page
         document.location.replace('/chat');
       } else {
+        console.log('Login failed:', response.statusText);
         alert(response.statusText);
       }
     }
