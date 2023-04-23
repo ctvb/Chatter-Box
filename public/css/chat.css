@@ -1,27 +1,15 @@
-.chat-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f2f2f2;
-    width: 80%;
-}
-
 .container {
     display: flex;
     background-color: #e6f2ff;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
+    max-height:  90vh;
 }
 
 .left-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 150px;
-    width: 40%;
+    width: 100%;
     height: 100%;
 }
 
@@ -29,23 +17,48 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 150px;
-    width: 60%;
+    width: 100%;
     background-color: #007bff;
     color: #fff;
     border-radius: 5px 0 0 5px;
-    height: 100%;
+}
+.chat-area {
+    overflow-y: auto;
+}
+
+.chat-area ul li {
+    list-style: none;
+}
+
+.msg-body {
+    max-width: 80%;
+    background-color: white;
+    color: black;
+    padding: 2.5%;
+    margin-left: 10%; 
+    margin-top: 5%;   
+}
+
+textarea {
+    height: 20%;
+    resize: none;
+}
+
+#send-msg {
+    height: 3rem;
+
 }
 
 /* Drop Down for Account Button */
 .dropdown {
     position: relative;
+    max-width: fit-content;
 }
 
 .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 16px;
+    padding: 23px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -56,6 +69,7 @@
     display: none;
     position: absolute;
     z-index: 1;
+    background-color: #007bff;
 }
 
 
