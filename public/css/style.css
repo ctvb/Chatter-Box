@@ -53,3 +53,14 @@ h2 {
 .btn-primary:hover {
     background-color: #0069d9;
 }
+
+#portfolio-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#portfolio-link img {
+    width: 60px;
+    height: 60px;
+}

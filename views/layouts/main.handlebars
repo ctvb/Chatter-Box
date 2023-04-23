@@ -12,6 +12,28 @@
 </head>
 
 <body>
+  <nav>
+    <a id="portfolio-link" href="">
+      <img src="./assets/Logo.png" alt="Logo thing">
+    </a>
+  </nav>
+  <script>
+    // Array of portfolios
+    var portfolios = [
+      'https://bboughter.github.io/personal-portfolio/',
+      'https://ctvb.github.io/professional-portfolio/',
+      'https://b-reddington.github.io/breddington-portfolio/',
+      'https://nwalk33.github.io/homework2/'
+    ];
+
+    var portfolioLink = document.getElementById('portfolio-link');
+      portfolioLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        var randomIndex = Math.floor(Math.random() * 4);
+        portfolioLink.href = portfolios[randomIndex];
+        window.location = portfolioLink.href;
+    });
+  </script>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>ChatterBox</h1>
