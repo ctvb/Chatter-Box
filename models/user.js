@@ -33,7 +33,7 @@ User.init(
             allowNull: false,
             validate: {
                 len: [8],
-                is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i
+                // is: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/i
             },
         },
 

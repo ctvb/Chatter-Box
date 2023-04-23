@@ -1,4 +1,4 @@
-let profile_image = " "
+let profile_image = "test.jpg"
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
