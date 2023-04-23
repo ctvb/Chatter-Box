@@ -1,10 +1,18 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
-    const userData = await User.create(req.body);
+    console.log(req.body);
+    const saltRounds = 10; // Number of salt rounds to use for the hash
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    const userData = await User.create({
+      firstname: req.body.firstname,
+      username: req.body.username,
+      email: req.body.email,
+      password: hashedPassword // Store the hashed password in the database
+    });
 
     // req.session.save(() => {
     //   req.session.user_id = userData.id;
@@ -29,7 +37,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await bcrypt.compare(req.body.password, userData.password);
 
     if (!validPassword) {
       res
@@ -41,7 +49,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -51,18 +59,25 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-    try {
-      const userData = await User.create(req.body);
-      req.session.save(() => {
-        req.session.user_id = userData.id;
-        req.session.logged_in = true;
-        
-        res.status(200).json({userData, message: 'Profile created successfully'});
-      });
-      
-      } catch (err) {
-      res.status(400).json(err);
-    }
+  try {
+    const saltRounds = 10; // Number of salt rounds to use for the hash
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    const userData = await User.create({
+      firstname: req.body.firstname,
+      username: req.body.username,
+      email: req.body.email,
+      password: hashedPassword // Store the hashed password in the database
+    });
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json({ userData, message: 'Profile created successfully' });
+    });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
