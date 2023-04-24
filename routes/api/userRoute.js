@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
+const { request } = require('express');
 
 router.post('/', async (req, res) => {
   try {
@@ -27,12 +28,12 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -41,7 +42,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -59,6 +60,16 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
+    const { username, email, password } = req.body;
+    console.log(password)
+    if (password.length < 8) {
+      throw new Error('Password is too short')
+    }
+    const user = await User.findOne({ where: { username } });
+    if (user) {
+      throw new Error('This username is already taken.');
+    }
+
     const saltRounds = 10; // Number of salt rounds to use for the hash
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     const userData = await User.create({
@@ -75,7 +86,8 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err.message);
+    res.status(400).json({message: err.message});
   }
 });
 
