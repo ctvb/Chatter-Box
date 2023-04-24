@@ -8,20 +8,26 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
-    if ( firstname && username && email && password) {
-      const response = await fetch('/api/user', {
+  if (firstname && username && email && password) {
+
+      const response = await fetch('/api/user/signup', {
         method: 'POST',
         body: JSON.stringify({ firstname, username, email, password, profile_image }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+    const data = await response.json()
+
       if (response.ok) {
         document.location.replace('/chat');
-      } else {
-        alert(response.statusText);
+      }
+    
+       else {
+        
+        alert(data.message)
       }
     }
-  };
+  }
+
 
   // var myWidget = cloudinary.createUploadWidget({
   //   cloudName: 'dov0ohe0b', 
