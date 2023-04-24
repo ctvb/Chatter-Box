@@ -37,8 +37,6 @@
 // //     }
 // // });
 
-// module.exports = router;
-
 const express = require('express');
 const app = express();
 const server = require('http').createServer(app);
@@ -59,4 +57,8 @@ io.on('connection', (socket) => {
         console.log(data);
     })
 });
-// module.exports = router;
+
+
+app.post('/get_messages', (req, res) => {
+    
+})

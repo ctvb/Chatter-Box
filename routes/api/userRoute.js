@@ -4,9 +4,8 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body);
-    const saltRounds = 10; // Number of salt rounds to use for the hash
-    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    // console.log(req.body);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const userData = await User.create({
       firstname: req.body.firstname,
       username: req.body.username,
@@ -77,6 +76,16 @@ router.post('/signup', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 

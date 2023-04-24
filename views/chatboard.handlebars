@@ -9,14 +9,14 @@
 				<button class="dropbtn">Account</button>
 				<div class="dropdown-content">
 					<a href="#">Change Password</a>
-					<a href="/login">Log Off</a>
+					<button id="logout">Log Off</button>
 				</div>
 			</div>
 		</div>
 		<div class="users">
 			<div class="user-list">
 				<ul>
-					{{#each user as |user|}}
+					{{#each users as |user|}}
 					<li class="users-online">
 						<p>{{user.profile_image}} {{user.username}}</p>
 					</li>
@@ -79,5 +79,5 @@
 		<textarea name="message" id="msg-box" placeholder="Type your message here"></textarea>
 		<button id="send-msg" type="submit">Send</button>
 	</div>
-
+<script src="/js/logout.js"></script>
 <script src="/js/chat.js"></script>
