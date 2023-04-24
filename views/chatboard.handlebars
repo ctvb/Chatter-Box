@@ -1,3 +1,7 @@
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+	integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+	crossorigin="anonymous"></script>
+
 <div class="container">
 	<div class="left-column">
 		<div class="account">
@@ -5,7 +9,7 @@
 				<button class="dropbtn">Account</button>
 				<div class="dropdown-content">
 					<a href="#">Change Password</a>
-					<a href="#">Log Off</a>
+					<a href="/login">Log Off</a>
 				</div>
 			</div>
 		</div>
@@ -27,9 +31,9 @@
 				<ul>
 					<li>
 						<div class="msg-body">
-							<h3 class="name">{{firstname}}</h3>
-							<p class="msg-text">Hi, how are you?</p>
-							<small>12:30pm</small>
+							<h3 class="name"></h3>
+							<p class="msg-text"></p>
+							<small></small>
 						</div>
 					</li>
 					<li>
@@ -69,24 +73,11 @@
 							<small>12:35pm</small>
 						</div>
 					</li>
-					<li>
-						<div class="msg-body">
-							<h3 class="name">Jane Smith</h3>
-							<p class="msg-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus,
-								doloribus et voluptas expedita exercitationem nemo porro vitae quos maiores. Impedit
-								minus adipisci modi tenetur laudantium autem saepe exercitationem consequuntur culpa!
-							</p>
-							<small>12:35pm</small>
-						</div>
-					</li>
 				</ul>
 				</div>
 			</div>
-		<textarea name="message" placeholder="Type your message here"></textarea>
+		<textarea name="message" id="msg-box" placeholder="Type your message here"></textarea>
 		<button id="send-msg" type="submit">Send</button>
 	</div>
-<
 
-
-{{!--
-<script src="/js/chat.js"></script> --}}
+<script src="/js/chat.js"></script>

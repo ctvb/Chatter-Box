@@ -38,3 +38,25 @@
 // // });
 
 // module.exports = router;
+
+const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, { cors: { origin: '*' } });
+
+app.set('view engine', 'handlebars');
+
+server.listen(3000, () => {
+    console.log('listening on PORT:3001');
+})
+
+io.on('connection', (socket) => {
+    // have this log actual userID from DB
+    console.log("User Connected: " + socket.id);
+    //event message - when data is grabbed, 
+    socket.on("message",  (data)=> {
+        socket.emit('message', data);
+        console.log(data);
+    })
+});
+// module.exports = router;
