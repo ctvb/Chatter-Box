@@ -3,29 +3,29 @@ const bcrypt = require('bcrypt');
 const { User } = require('../../models');
 const { request } = require('express');
 
-// router.post('/', async (req, res) => {
-//   try {
-//     // console.log(req.body);
-//     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-//     const userData = await User.create({
-//       firstname: req.body.firstname,
-//       username: req.body.username,
-//       email: req.body.email,
-//       password: hashedPassword
-//        // Store the hashed password in the database
-//     });
+router.post('/', async (req, res) => {
+  try {
+    // console.log(req.body);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const userData = await User.create({
+      firstname: req.body.firstname,
+      username: req.body.username,
+      email: req.body.email,
+      password: hashedPassword
+       // Store the hashed password in the database
+    });
 
-//     req.session.save(() => {
-//       req.session.user_id = userData.id;
-//       req.session.logged_in = true;
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-//       res.status(200).json(userData);
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json(err);
-//   }
-// });
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 router.post('/login', async (req, res) => {
   try {
