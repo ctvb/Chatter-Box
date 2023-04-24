@@ -1,17 +1,22 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
- 
-  if (req.session.logged_in) {
-    res.redirect('/chat');
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
   } else {
-    res.render('homepage');
+    res.render('login');
   }
 });
 
 router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/chat');
+    return;
+  }else {
   res.render('login');
-  return;
+  }
+
 });
 
 router.get('/signup', (req, res) => {
@@ -23,5 +28,7 @@ router.get('/chat', (req, res) => {
   res.render('chatboard');
   return;
 });
+
+
 
 module.exports = router;
