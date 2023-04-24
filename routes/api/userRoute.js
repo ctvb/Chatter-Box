@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { User } = require('../../models');
+const { request } = require('express');
 
 router.post('/', async (req, res) => {
   try {
@@ -60,10 +61,16 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    console.log(req.body.password)
-    if (req.body.password.length < 8) {
+    const { username, email, password } = req.body;
+    console.log(password)
+    if (password.length < 8) {
       throw new Error('Password is too short')
-    } 
+    }
+    const user = await User.findOne({ where: { username } });
+    if (user) {
+      throw new Error('This username is already taken.');
+    }
+
     const saltRounds = 10; // Number of salt rounds to use for the hash
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     const userData = await User.create({
