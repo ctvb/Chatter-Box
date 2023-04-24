@@ -27,17 +27,14 @@ const sess = {
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
-
         db: sequelize
     })
 };
 
+// Commented out for debugging purposes (Currently spams console log with )
 app.use(session(sess));
-// const { Server } = require('socket.io');
-// const io = new Server({ });
-// Inform Express.js on which template engine to use
 
-// app.engine('handlebars', exphbs({ defaultLayout:'main' }));
+// Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -58,9 +55,3 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Server Error');
 })
-
-// io.on('connection', (socket) => {
-//     console.log('a user connected');
-// })
-
-// io.listen(3000);
