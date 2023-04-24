@@ -1,5 +1,5 @@
 const sendMsgBtn = document.getElementById('send-msg');
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:3001');
 socket.on('connection');
 
 socket.on('message', (data) => {
