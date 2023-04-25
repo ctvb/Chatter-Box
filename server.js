@@ -52,7 +52,7 @@ const createChatMessage = async (text, user_id) => {
 app.use(session(sess));
 
 // Starts the server for socket.io
-server.listen(3000, () => {
+server.listen(PORT, () => {
     console.log(`Server listening on: http://localhost:3000`);
 });
 
@@ -109,7 +109,7 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
     console.log('Database Synced');
-    app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
+    // app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
 });
 
 app.use((err, req, res, next) => {
