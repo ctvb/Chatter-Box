@@ -26,10 +26,10 @@ Whether using the application on Heroku or on another platform, the user will be
 
 ## Credits
 
-Brittany Boughter - https://github.com/Bboughter 
-Nick Smith - https://github.com/ctvb
-Brandon Reddington - https://github.com/b-reddington
-Nathan Walker - https://github.com/nwalk33
+- Brittany Boughter - https://github.com/Bboughter 
+- Nick Smith - https://github.com/ctvb
+- Brandon Reddington - https://github.com/b-reddington
+- Nathan Walker - https://github.com/nwalk33
 
 Huge credit to our instructior, Bryan, and our TA, Shawn, for answering all of our questions along the making of this application.
 
