@@ -11,11 +11,6 @@ Chat.init(
             primaryKey: true,
             autoIncrement: true
         },
-        message_id: {
-            type: DataTypes.INTEGER,
-            // allowNull: false,
-            unique: true
-        },
         text: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -23,15 +18,15 @@ Chat.init(
         time_stamp: {
             type: DataTypes.DATE,
             // allowNull: false,
-            default: DataTypes.NOW
+            defaultValue: DataTypes.NOW
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "user",
-                key: "id"
-            }
-        }
+        // user_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: "user",
+        //         key: "id"
+        //     }
+        // }
     },
     {
         sequelize,

@@ -1,26 +1,35 @@
-const sendMsgBtn = document.getElementById('send-msg');
-const socket = io('http://localhost:3001');
-socket.on('connection');
+const chatForm = document.getElementById('chat-form');
+const chatMsg = document.querySelector('.msg-body')
+const socket = io();
 
-socket.on('message', (data) => {
-    // var socketId = users[data.receiver];
-    // io.to(socketId).emit('new_message', data);
-    // save to DB
-    // connection.query('INSERT INTO chat (text, timeStamp) ())
-    const name = document.querySelector('.name');
-    const text = document.querySelector('.msg-text')
-    const date = document.querySelector('small');
-
-    name.innerHTML = 'temp-name';
-    text.innerHTML = data;
-    date.innerHTML = 'temp-date';
-
+//Message from server
+socket.on('message', message => {
+    // console.log(message);
+    outputMessage(message);
 })
-const sendMsg = () => {
-    const messageBox = document.querySelector('#msg-box');
-    const message = messageBox.value;
-    socket.emit('message', message);
-}
 
-// When button is clicked, execute sendMsg function
-sendMsgBtn.addEventListener('click', sendMsg);
+// Message Submit
+chatForm.addEventListener('submit', (e) => {
+    // Prevent page from refreshing
+    e.preventDefault();
+    // Get Message Text
+    const msg = e.target.elements.msg.value;
+    //emitting the message to the server
+    socket.emit('chatMessage', msg)
+
+    // Clear input field & focus once sent
+    e.target.elements.msg.value = '';
+    e.target.elements.msg.focus();
+})
+
+// Output message to DOM
+function outputMessage(message) {
+    const div = document.createElement('div');
+    div.classList.add('msg-body');
+    div.innerHTML = `
+    <p class="name">${message.username} @ <span>${message.time}</span></p>
+    <p class="msg-text">
+    ${message.text}
+    </p>`;
+    document.querySelector('.chat-list').appendChild(div);
+}

@@ -1,106 +1,42 @@
-.container {
+#chat-area {
     display: flex;
-    background-color: #e6f2ff;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    margin: 0 auto;
-    max-height:  90vh;
-}
-
-.left-column {
-    width: 100%;
-    height: 100%;
-}
-
-.right-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px 0 0 5px;
-}
-.chat-area {
+    flex-direction: column-reverse;
     overflow-y: auto;
-}
-
-.chat-area ul li {
-    list-style: none;
+    height: 50vh;
 }
 
 .msg-body {
-    max-width: 80%;
-    background-color: white;
-    color: black;
-    padding: 2.5%;
-    margin-left: 10%; 
-    margin-top: 5%;   
+    max-width: 90%;
+    height: fit-content;
+    background-color: rgb(182, 226, 255);
+    color: rgb(22, 22, 22);
+    margin-left: 5%; 
+    margin-bottom: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    border-radius: 10px;
+
 }
 
-textarea {
-    height: 10%;
+#msg {
+    height: 60%;
+    width: 100%;
     resize: none;
 }
 
 #send-msg {
-    height: 3rem;
-
+    height: 50%;
+    width: 100%;
 }
 
-/* Drop Down for Account Button */
-.dropdown {
-    position: relative;
-    max-width: fit-content;
+.name {
+    font-weight: 600;
+    color: rgb(64, 89, 105);
+    line-height: 1rem;
 }
 
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 23px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    background-color: #007bff;
-}
-
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.dropdown.active .dropdown-content {
-    display: block;
-}
-
-.account-section {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.account-button {
-    font-size: 24px;
+.msg-text {
+    font-weight: 500;
 }
