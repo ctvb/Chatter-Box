@@ -13,13 +13,13 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
+      const data = await response.json()
       if (response.ok) {
         // If successful, redirect the browser to the profile page
         document.location.replace('/chat');
       } else {
-        console.log('Login failed:', response.statusText);
-        alert(response.statusText);
+        // console.log('Login failed:', response.statusText);
+        alert(data.message);
       }
     }
   };
