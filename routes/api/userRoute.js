@@ -56,6 +56,15 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
+    const { username, email, password } = req.body;
+    console.log(password)
+    if (password.length < 8) {
+      throw new Error('Password is too short')
+    }
+    const user = await User.findOne({ where: { username } });
+    if (user) {
+      throw new Error('This username is already taken.');
+    }
     const saltRounds = 10; // Number of salt rounds to use for the hash
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     const userData = await User.create({
@@ -72,7 +81,7 @@ router.post('/signup', async (req, res) => {
     });
 
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json({message: err.message});
   }
 });
 
