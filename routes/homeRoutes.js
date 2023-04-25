@@ -25,11 +25,16 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/chat', (req, res) => {
+  if (req.session.logged_in) {
   res.render('chatboard', {
     logged_in: req.session.logged_in,
     username: req.session.username
   });
   return;
+}
+else {
+    res.render('login');
+}
 });
 
 // Used to verify contents of session
