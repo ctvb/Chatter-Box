@@ -8,6 +8,7 @@ router.get('/', withAuth, (req, res) => {
   }
 });
 
+
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/chat');
@@ -24,8 +25,17 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/chat', (req, res) => {
-  res.render('chatboard');
+  res.render('chatboard', {
+    logged_in: req.session.logged_in,
+    username: req.session.username
+  });
   return;
+});
+
+// Used to verify contents of session
+router.get('/check-session', (req, res) => {
+  console.log(req.session);
+  res.send('Session checked');
 });
 
 
